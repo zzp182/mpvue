@@ -113,7 +113,7 @@ import{ get } from '../../utils'
          })
       }
     }
-  }
+  }  
 </script>
 <style lang="less" scoped>
 @import "./style.less";
