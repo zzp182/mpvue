@@ -9,11 +9,18 @@ module.exports = async (ctx) => {
    const channel = await mysql('nideshop_channel').select()
 
    //品牌列表
-   const brandList = await mysql('nideshop_brand').select()
+   const brandList = await mysql('nideshop_brand').where({
+       is_new:1
+   }).orderBy('new_sort_order','asc').limit(4).select()
+
+   //新品首发
+    const newGoods = await mysql('nideshop_goods').whereIn('id',[1181000,1135002,1134030,1134032]).andWhere('is_new', 1).select();
+
 
    ctx.body = {
        'banner' : banner ,
        'channel': channel ,
        'brandList': brandList ,
+       'newGoods':newGoods
    }
 }

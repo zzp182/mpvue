@@ -25,17 +25,57 @@
       </div>
     </div>
     <div class="brand">
-      <div class="head">
+      <div class="head" @click="tobrandList">
         品牌制造商直供
       </div>
       <div class="content">
-        <div v-for="(item , index) in brandList" :key="index" >
+        <div v-for="(item , index) in brandList" :key="index" @click="branddetail(item.id)">
           <div @click="shopList">
             <p>{{item.name}}</p>
             <p class="price">{{item.floor_price}}元起</p>
           </div>
           <img :src="item.new_pic_url" alt="">
         </div>
+      </div>
+    </div>
+    <div class="newgoods">
+      <div class="newgoods-top">
+        <div class="top">
+          <p>新品首发</p>
+          <p>查看全部</p>
+        </div>
+      </div>
+      <div class="list">
+        <ul>
+          <scroll-view class="scroll-view" :scroll-x ="true">
+             <li v-for="(item , index) in newGoods" :key="index">
+                <img :src="item.list_pic_url" alt="">
+                <p>{{item.name}}</p>
+                <p>{{item.goods_brief}}</p>
+                <p>￥{{item.retail_price}}</p>
+             </li>
+          </scroll-view>
+        </ul>
+      </div>
+    </div>
+    <div class="newgoods hotgoods">
+      <div class="newgoods-top ">
+        <div class="top">
+          <p>人气推荐<span></span>好物精选</p>
+          <p>查看全部</p>
+        </div>
+      </div>
+      <div class="list">
+        <ul>
+          <scroll-view class="scroll-view" :scroll-x ="true">
+             <li v-for="(item , index) in newGoods" :key="index">
+                <img :src="item.list_pic_url" alt="">
+                <p>{{item.name}}</p>
+                <p>{{item.goods_brief}}</p>
+                <p>￥{{item.retail_price}}</p>
+             </li>
+          </scroll-view>
+        </ul>
       </div>
     </div>
   </div>
@@ -51,6 +91,8 @@ import{ get } from '../../utils'
          banner: [],
          channel:[],
          brandList:[],
+         newGoods:[],
+         hotGoods:[],
       }
     },
     computed: {
@@ -106,11 +148,22 @@ import{ get } from '../../utils'
          this.banner = data.banner 
          this.channel = data.channel
          this.brandList = data.brandList
+         this.newGoods = data.newGoods
       },
       categroyList(id){
          wx.navigateTo({
            url:'/pages/categroylist/mian?id='+id
          })
+      },
+      branddetail(id){
+        wx.navigateTo({
+          url:'/pages/branddetail/mian?id='+id
+        })
+      },
+      tobrandList(){
+        wx.navigateTo({
+          url:'/pages/brandlist/main'
+        })
       }
     }
   }  
