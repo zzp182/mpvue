@@ -43,7 +43,7 @@
         <div class="top">
           <p>新品首发</p>
           <p>查看全部</p>
-        </div>
+        </div> 
       </div>
       <div class="list">
         <ul>
@@ -61,7 +61,11 @@
     <div class="newgoods hotgoods">
       <div class="newgoods-top ">
         <div class="top">
-          <p>人气推荐<span></span>好物精选</p>
+          <p>
+            人气推荐
+            <span></span>
+            好物精选
+            </p>
           <p>查看全部</p>
         </div>
       </div>

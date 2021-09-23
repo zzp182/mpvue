@@ -176,3 +176,23 @@
   font-size: 30rpx;
   color: #9c3232;
 }
+.index .hotgoods .newgoods-top {
+  background: url('../../../static/images/bgtopic.png') no-repeat;
+  background-size: 100% 100%;
+}
+.index .hotgoods .newgoods-top .top p {
+  color: #b1a279;
+  font-size: 32rpx;
+  vertical-align: middle;
+}
+.index .hotgoods .newgoods-top .top p:nth-child(1) span {
+  width: 4rpx;
+  height: 4rpx;
+  font-size: 14rpx;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #b1a279;
+}
+.index .hotgoods .newgoods-top .top p:nth-child(2) {
+  background: #f4e9cb;
+}
