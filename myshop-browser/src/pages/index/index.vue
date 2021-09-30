@@ -72,7 +72,7 @@
       <div class="list">
         <ul>
           <scroll-view class="scroll-view" :scroll-x ="true">
-             <li v-for="(item , index) in newGoods" :key="index">
+             <li v-for="(item , index) in hotGoods" :key="index">
                 <img :src="item.list_pic_url" alt="">
                 <p>{{item.name}}</p>
                 <p>{{item.goods_brief}}</p>
@@ -153,6 +153,7 @@ import{ get } from '../../utils'
          this.channel = data.channel
          this.brandList = data.brandList
          this.newGoods = data.newGoods
+         this.hotGoods = data.hotGoods
       },
       categroyList(id){
          wx.navigateTo({
