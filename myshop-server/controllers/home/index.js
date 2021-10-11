@@ -21,6 +21,9 @@ module.exports = async (ctx) => {
         is_hot:1
     }).limit(5).select()
 
+    // 专题精选
+    const topicList = await mysql('nideshop_topic').limit(3).select()
+
 
    ctx.body = {
        'banner' : banner ,
@@ -28,5 +31,6 @@ module.exports = async (ctx) => {
        'brandList': brandList ,
        'newGoods':newGoods,
        'hotGoods':hotGoods,
+       'topicList':topicList,
    }
 }

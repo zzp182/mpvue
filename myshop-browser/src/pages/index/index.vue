@@ -39,7 +39,7 @@
       </div>
     </div>
     <div class="newgoods">
-      <div class="newgoods-top">
+      <div class="newgoods-top" @click="goodsList('new')">
         <div class="top">
           <p>新品首发</p>
           <p>查看全部</p>
@@ -59,7 +59,7 @@
       </div>
     </div>
     <div class="newgoods hotgoods">
-      <div class="newgoods-top ">
+      <div class="newgoods-top " @click="goodsList('hot')">
         <div class="top">
           <p>
             人气推荐
@@ -82,6 +82,28 @@
         </ul>
       </div>
     </div>
+    <div class="topicList">
+      <div class="topicList-top">
+        专题精选
+        <span class="icon"></span>
+        <div class="list">
+          <ul>
+            <scroll-view class="scroll-view" :scroll-x="true">
+              <li v-for="(item,index) in topicList" :key="index">
+                <img :src="item.item_pic_url" alt="">
+                <div class="btom">
+                  <div>
+                    <p>{{item.title}}</p>
+                    <p>{{item.subtitle}}</p>
+                  </div>
+                  <div>{{item.price_info}}元起</div>
+                </div>
+              </li>
+            </scroll-view>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -97,6 +119,7 @@ import{ get } from '../../utils'
          brandList:[],
          newGoods:[],
          hotGoods:[],
+         topicList:[],
       }
     },
     computed: {
@@ -154,6 +177,7 @@ import{ get } from '../../utils'
          this.brandList = data.brandList
          this.newGoods = data.newGoods
          this.hotGoods = data.hotGoods
+         this.topicList = data.topicList
       },
       categroyList(id){
          wx.navigateTo({
@@ -169,6 +193,17 @@ import{ get } from '../../utils'
         wx.navigateTo({
           url:'/pages/brandlist/main'
         })
+      },
+      goodsList(info) {
+        if(info === 'hot') {
+          wx.navigateTo({
+            url:'/pages/newgoods/main?isHot=' + 1
+          })
+        } else {
+          wx.navigateTo({
+            url:'/pages/newgoods/main?isNew=' + 1
+          })
+        }
       }
     }
   }  
