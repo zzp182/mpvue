@@ -197,3 +197,145 @@
   background: #f4e9cb;
   font-size: 22rpx;
 }
+.index .topicList {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.index .topicList-top {
+  text-align: center;
+  padding: 36rpx 5rpx 0 5rpx;
+  vertical-align: middle;
+}
+.index .topicList-top .icon {
+  display: inline-block;
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 5rpx;
+  background: url(../../../static/images/right.png) no-repeat;
+  background-size: 100% 100%;
+  vertical-align: middle;
+  margin-top: -3rpx;
+}
+.index .topicList .list {
+  margin-top: 25rpx;
+}
+.index .topicList .list .scroll-view {
+  white-space: nowrap;
+}
+.index .topicList .list .scroll-view li {
+  display: inline-block;
+  width: 575rpx;
+  margin-left: 25rpx;
+}
+.index .topicList .list .scroll-view li img {
+  display: block;
+  width: 575rpx;
+  height: 325rpx;
+  border-radius: 10rpx;
+}
+.index .topicList .list .scroll-view li .btom {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 32rpx;
+  width: 100%;
+}
+.index .topicList .list .scroll-view li .btom div:nth-child(1) {
+  width: 90%;
+}
+.index .topicList .list .scroll-view li .btom div:nth-child(1) p {
+  margin-top: 8rpx;
+}
+.index .topicList .list .scroll-view li .btom div:nth-child(1) p:nth-child(1) {
+  font-size: 30rpx;
+  font-weight: bold;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+.index .topicList .list .scroll-view li .btom div:nth-child(1) p:nth-child(2) {
+  width: 90%;
+  font-size: 24rpx;
+  color: #8a8a8a;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+.index .topicList .list .scroll-view li .btom div:nth-child(2) {
+  margin-top: 8rpx;
+  color: #9c3232;
+  font-size: 24rpx;
+}
+.index .topicList .list .scroll-view li:last-child {
+  margin-right: 25rpx;
+}
+.index .newcategory {
+  margin-top: 20rpx;
+  padding: 0 10rpx 25rpx 10rpx;
+}
+.index .newcategory .head {
+  padding: 25rpx 0;
+  text-align: center;
+}
+.index .newcategory .sublist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 730rpx;
+  margin: 0 auto;
+}
+.index .newcategory .sublist div {
+  width: 360rpx;
+  background: #fff;
+  margin-bottom: 10rpx;
+  padding-bottom: 10rpx;
+}
+.index .newcategory .sublist div img {
+  display: block;
+  width: 302rpx;
+  height: 302rpx;
+  margin: 0 auto;
+}
+.index .newcategory .sublist div p {
+  margin-bottom: 5rpx;
+  text-indent: 1em;
+}
+.index .newcategory .sublist div p:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 98%;
+}
+.index .newcategory .sublist div p:nth-child(3) {
+  color: #9c3232;
+}
+.index .newcategory .sublist .last {
+  display: block;
+  width: 302rpx;
+  height: 302rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.index .newcategory .sublist .last p {
+  height: 33rpx;
+  width: 100%;
+  line-height: 33rpx;
+  color: #333;
+  font-size: 33rpx;
+  text-align: center;
+}
+.index .newcategory .sublist .last .icon {
+  display: inline-block;
+  width: 70rpx;
+  height: 70rpx;
+  background: url('../../../static/images/rightbig.png') no-repeat;
+  background-size: 100% 100%;
+  margin-top: 60rpx;
+}
+.index .newcategory .sublist div:nth-child(2n) {
+  margin-left: 10rpx;
+}

@@ -89,7 +89,7 @@
         <div class="list">
           <ul>
             <scroll-view class="scroll-view" :scroll-x="true">
-              <li v-for="(item,index) in topicList" :key="index">
+              <li v-for="(item,index) in topicList" :key="index" @click="topicdetail(item.id)">
                 <img :src="item.item_pic_url" alt="">
                 <div class="btom">
                   <div>
@@ -101,6 +101,24 @@
               </li>
             </scroll-view>
           </ul>
+        </div>
+      </div>
+    </div>
+    <div class="newcategory" >
+      <div class="list" v-for="(item , index) in newCategoryList" :key="index">
+        <div class="head">{{item.name}}好物</div>
+        <div class="sublist">
+          <div v-for="(subitem, subindex) in item.goodList" :key="subindex">
+            <img :src="subitem.list_pic_url" alt="">
+            <p>{{subitem.name}}</p>
+            <p>￥{{subitem.retail_price}}</p>
+          </div>
+          <div>
+            <div class="last">
+              <p>{{item.name}}好物</p>
+              <span class="icon"></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -120,6 +138,7 @@ import{ get } from '../../utils'
          newGoods:[],
          hotGoods:[],
          topicList:[],
+         newCategoryList:[],
       }
     },
     computed: {
@@ -178,6 +197,8 @@ import{ get } from '../../utils'
          this.newGoods = data.newGoods
          this.hotGoods = data.hotGoods
          this.topicList = data.topicList
+         this.newCategoryList = data.newCategoryList
+         console.log(this.newCategoryList)
       },
       categroyList(id){
          wx.navigateTo({
@@ -204,7 +225,12 @@ import{ get } from '../../utils'
             url:'/pages/newgoods/main?isNew=' + 1
           })
         }
-      }
+      },
+      topicdetail(id){
+        wx.navigateTo({
+          url:'/pages/topicdetail/main?id=' + id
+        })
+      },
     }
   }  
 </script>
