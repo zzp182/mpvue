@@ -38,11 +38,11 @@ function request(url , method , data , header = {}){
           "content-type":"application/json"
         },
         success: res => {
-          wx.hideLoading();
+          // wx.hideLoading();
           resolve(res.data)
         },
         fail: (error) => {
-          wx.hideLoading();
+          // wx.hideLoading();
           reject(false)
         },
         complete: () => {

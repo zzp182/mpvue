@@ -1,0 +1,40 @@
+.search {
+  height: 100%;
+  position: relative;
+}
+.search .head {
+  height: 91rpx;
+  display: flex;
+  padding: 0 32rpx;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1rpx solid rgba(0, 0, 0, 0.15);
+}
+.search .head div:nth-child(1) {
+  height: 59rpx;
+  display: flex;
+  align-items: center;
+  background: #f4f4f4;
+}
+.search .head div:nth-child(1) img {
+  display: inline-block;
+  width: 31rpx;
+  height: 31rpx;
+  padding: 0 20rpx;
+}
+.search .head div:nth-child(1) input {
+  display: inline-block;
+  width: 480rpx;
+  height: 59rpx;
+  margin-left: 10rpx;
+}
+.search .head div:nth-child(1) .del {
+  width: 53rpx;
+  height: 53rpx;
+  padding: 0;
+}
+.search .head div:nth-child(2) {
+  flex: 1;
+  text-align: center;
+}
