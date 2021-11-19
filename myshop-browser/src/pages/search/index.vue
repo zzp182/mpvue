@@ -16,14 +16,15 @@
               数据库暂无此类商品
           </div>
       </div>
-      <div class="history">
+      <div class="history" v-if="historyData.length!==0">
           <div class="t">
               <div>历史记录</div>
               <div @click="clearHistory"></div>
-              
           </div>
           <div class="cont">
-                  <div>日式</div>
+                <div v-for="(item, index) in historyData" :key="index">
+                    {{item.keyword}}
+                </div>
           </div>
       </div>
       <div class="history hotsearch">
@@ -31,8 +32,9 @@
               <div>热门搜索</div> 
           </div>
           <div class="cont">
-                <div class="active">日式</div>
-                <div>韩式</div>
+                <div v-for="(item, index) in hotData" :key="index" :class="{active: item.is_hot === 1}">
+                    {{item.keyword}}
+                </div>
           </div>
       </div>
     </div>
@@ -50,7 +52,7 @@ export default {
         }
     },
     mounted() {
-        this.openid = wx.getStorage('openid') || '';
+        this.openid = wx.getStorageSync('openId') || '';
         this.getHotData()
     },
     methods:{
@@ -65,7 +67,7 @@ export default {
             let value = e.currentTarget.dataset.value
             this.words = value || this.words
             const data = await post('/search/addhistoryaction',{
-                openId:this.words,
+                openId:this.openid,
                 keyword:value || this.words
             })
             // console.log(data)
@@ -74,8 +76,9 @@ export default {
         },
         async getHotData(first) {
             const data = await get('/search/indexaction?openId=' + this.openid)
+            // console.log(this.openid)
             this.historyData = data.historyData
-            this.hotData = data.hotData
+            this.hotData = data.hotKeywordList
             console.log(data)
         }
     }

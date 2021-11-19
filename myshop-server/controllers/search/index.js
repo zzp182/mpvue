@@ -21,6 +21,7 @@ async function indexAction(ctx) {
 
 // 添加搜索历史
 async function addHistoryAction(ctx) {
+    console.log(ctx.request.body)
     const {openId, keyword} = ctx.request.body
 
     const oldData = await mysql('nideshop_search_history').where({
@@ -31,7 +32,7 @@ async function addHistoryAction(ctx) {
         const data = await mysql('nideshop_search_history').insert({
             'user_id':openId,
             'keyword':keyword,
-            'addtime':parseInt(new Date().getTime() / 1000)
+            'add_time':parseInt(new Date().getTime() / 1000)
         })
         if (data) {
             ctx.body = {
