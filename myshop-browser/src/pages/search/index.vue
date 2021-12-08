@@ -9,10 +9,12 @@
           <div @click="cancel">取消</div>
       </div>
       <div class="searchtips" v-if="words">
-          <div>
-               牙刷
+          <div v-if="tipsData.length !== 0">
+              <div v-for="(item, index) in tipsData" :key="index">
+                {{item.name}}
+              </div>
           </div>
-          <div class="nogoods">
+          <div v-else class="nogoods">
               数据库暂无此类商品
           </div>
       </div>
@@ -22,7 +24,7 @@
               <div @click="clearHistory"></div>
           </div>
           <div class="cont">
-                <div v-for="(item, index) in historyData" :key="index">
+                <div v-for="(item, index) in historyData" :key="index" @click="searchWords" :data-value="item.keyword">
                     {{item.keyword}}
                 </div>
           </div>
@@ -32,7 +34,7 @@
               <div>热门搜索</div> 
           </div>
           <div class="cont">
-                <div v-for="(item, index) in hotData" :key="index" :class="{active: item.is_hot === 1}">
+                <div v-for="(item, index) in hotData" :key="index" :class="{active: item.is_hot === 1}" @click="searchWords" :data-value="item.keyword">
                     {{item.keyword}}
                 </div>
           </div>
@@ -49,6 +51,7 @@ export default {
             openid:'',
             hotData:[],
             historyData:[],
+            tipsData:[],
         }
     },
     mounted() {
@@ -60,9 +63,22 @@ export default {
             this.words = '';
         },
         cancel(){},
-        clearHistory(){},
+        async clearHistory(){
+            const data = await post('/search/clearhistoryAction',{
+                openId : this.openid
+            })
+            if(data){
+                this.historyData = []
+            }
+        },
         inputFocus(){},
-        tipsearch(){},
+        async tipsearch(){
+            const data = await get('/searc/helperaction', {
+                keyword : this.words
+            })
+            this.tipsData = data.keywords
+            console.log(data)
+        },
         async searchWords(e){
             let value = e.currentTarget.dataset.value
             this.words = value || this.words
@@ -79,7 +95,7 @@ export default {
             // console.log(this.openid)
             this.historyData = data.historyData
             this.hotData = data.hotKeywordList
-            console.log(data)
+            // console.log(data)
         }
     }
 }

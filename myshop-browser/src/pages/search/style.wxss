@@ -38,3 +38,55 @@
   flex: 1;
   text-align: center;
 }
+.search .searchtips {
+  position: absolute;
+  width: 100%;
+  top: 91rpx;
+  left: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  padding: 0 32rpx;
+  z-index: 9;
+  background: #fff;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+.search .searchtips div div {
+  padding: 20rpx 0;
+}
+.search .searchtips .nogoods {
+  text-align: center;
+  margin-top: 300rpx;
+}
+.search .history {
+  background: #fff;
+  padding: 32px;
+}
+.search .history .t {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.search .history .t div:nth-child(2) {
+  width: 55rpx;
+  height: 55rpx;
+  background: url("http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/del1-93f0a4add4.png") no-repeat;
+  background-size: 100% 100%;
+}
+.search .history .cont {
+  display: flex;
+  flex-wrap: wrap;
+}
+.search .history .cont div {
+  padding: 10rpx;
+  border: 1rpx solid #999;
+  margin: 0 30rpx 20rpx 0;
+}
+.search .history .cont .active {
+  border: 1px solid #b4282d;
+  color: #b4282d;
+}
+.search .hotsearch {
+  margin-top: 20rpx;
+}
