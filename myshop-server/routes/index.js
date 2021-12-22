@@ -11,6 +11,6 @@ router.get('/index/index', controllers.home.index)
 router.get('/search/indexaction', controllers.search.index.indexAction)
 router.post('/search/addhistoryaction', controllers.search.index.addHistoryAction)
 router.post('/search/clearhistoryAction', controllers.search.index.clearHistoryAction) // 清除搜索
-router.get('/searc/helperaction', controllers.search.index.helperAction)
+router.get('/search/helperaction', controllers.search.index.helperAction)
 
 module.exports = router
